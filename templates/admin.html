@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<Html>
+    <h1>Admin Page: Feed the questions</h1>
+    <div>
+    <ul>
+        {% for todo_item in all_items %}
+        <li><b>{{ todo_item.id }}</b>{{ todo_item.content }}</li>
+            <form action="/delData/{{todo_item.id}}/"
+                style="display: inline;" 
+                method="POST">{% csrf_token %}
+                <input type="submit" value="Delete"/>
+            </form>
+        {% endfor %}
+    </ul>
+    </div>
+    <form action="/addData/" method="POST"> {% csrf_token %}
+        <input type="text" name="content"/>
+        <input type="submit" value="Add"/>
+    </form>
+    <ul>
+        {% for items in data_items %}
+        <li>{{ items.ans }}</li>
+        <li>{{ items.ques }}</li>
+        <li>{{ items.team }}</li>
+        {% endfor %}
+    </ul>
+
+</Html>
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> i4l Connect</title>
+        <style type="text/css">
+        #header-main{
+            text-align:center;
+            padding-bottom: 50px;
+        }
+        #opt{
+            margin-left: 30px;
+            padding: 0px;
+        }
+        #ques{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        label{
+            margin-left: 50px;
+        }
+        </style>
+    </head>
+    <header id=header-main>
+    <h1> Survey for 14l connect</h1>
+    </header>
+<body>
+  
+<form action="/addopt/" method="POST"> {% csrf_token %} 
+
+    <div id = "ques">
+         {% for item in all_items %}
+        <p> <b>Question:</b> {{ item.content }}</p></br>
+        <h3>Team A</h3>
+        <div id = "opt">
+            <label><input type="radio" name="ratingA-{{ item.id }}" value="1star">1</label>
+            <label><input type="radio" name="ratingA-{{ item.id }}" value="2star">2</label>
+            <label><input type="radio" name="ratingA-{{ item.id }}" value="3star">3</label>
+            <label><input type="radio" name="ratingA-{{ item.id }}" value="4star">4</label>
+            <label><input type="radio" name="ratingA-{{ item.id }}" value="5star">5</label>
+        </div>
+        <h3>Team A</h3>
+        <div id = "opt">
+                <label><input type="radio" name="ratingB-{{ item.id }}" value="1star">1</label>
+                <label><input type="radio" name="ratingB-{{ item.id }}" value="2star">2</label>
+                <label><input type="radio" name="ratingB-{{ item.id }}" value="3star">3</label>
+                <label><input type="radio" name="ratingB-{{ item.id }}" value="4star">4</label>
+                <label><input type="radio" name="ratingB-{{ item.id }}" value="5star">5</label>
+        </div>
+        <h3>Team B</h3>
+        <div id = "opt">
+                <label><input type="radio" name="ratingC-{{ item.id }}" value="1star">1</label>
+                <label><input type="radio" name="ratingC-{{ item.id }}" value="2star">2</label>
+                <label><input type="radio" name="ratingC-{{ item.id }}" value="3star">3</label>
+                <label><input type="radio" name="ratingC-{{ item.id }}" value="4star">4</label>
+                <label><input type="radio" name="ratingC-{{ item.id }}" value="5star">5</label>
+        </div>
+        <h3>Team C</h3>
+        <div id = "opt">
+                <label><input type="radio" name="ratingD-{{ item.id }}" value="1star">1</label>
+                <label><input type="radio" name="ratingD-{{ item.id }}" value="2star">2</label>
+                <label><input type="radio" name="ratingD-{{ item.id }}" value="3star">3</label>
+                <label><input type="radio" name="ratingD-{{ item.id }}" value="4star">4</label>
+                <label><input type="radio" name="ratingD-{{ item.id }}" value="5star">5</label>
+        </div>
+        <h3>Team D</h3>
+        <div id = "opt">
+                <label><input type="radio" name="ratingE-{{ item.id }}" value="1star">1</label>
+                <label><input type="radio" name="ratingE-{{ item.id }}" value="2star">2</label>
+                <label><input type="radio" name="ratingE-{{ item.id }}" value="3star">3</label>
+                <label><input type="radio" name="ratingE-{{ item.id }}" value="4star">4</label>
+                <label><input type="radio" name="ratingE-{{ item.id }}" value="5star">5</label>
+        </div>
+        <hr>
+        {% endfor %}
+    </br></br><input type="submit" name="next" value="Submit">
+    </div>
+</form>
+</body>
+</html>
